@@ -17,7 +17,7 @@ jobs:
             - uses: actions/checkout@v2
             - name: Pull and run parrot
               run:
-                docker run -p 8080:80 kalverra/parrot
+                docker run -d -p 8080:80 kalverra/parrot
 
                 sleep 1
                 curl http://localhost:8080/health
