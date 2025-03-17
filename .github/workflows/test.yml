@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Pull and run parrot
+              run:
+                docker run -p 8080:80 kalverra/parrot
+
+                sleep 1
+                curl http://localhost:8080/health
